@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package user; 
+
+option go_package = "./userpb";
+
+service UserService {
+  // Unary
+  rpc CreateUser (User) returns (UserResponse);
+  rpc GetUser (UserId) returns (User);
+
+  // Server Streaming
+  rpc ListUsers (Empty) returns (stream User);
+
+  // Client Streaming
+  rpc CreateUsers (stream User) returns (UsersResponse);
+
+  // BiDi Streaming
+  rpc Chat (stream ChatMessage) returns (stream ChatMessage);
+}
+
+message Empty {}
+
+message User {
+  string id = 1;
+  string name = 2;
+  string email = 3;
+}
+
+message UserId {
+  string id = 1;
+}
+
+message UserResponse {
+  string message = 1;
+}
+
+message UsersResponse {
+  repeated string messages = 1;
+}
+
+message ChatMessage {
+  string sender = 1;
+  string message = 2;
+}
