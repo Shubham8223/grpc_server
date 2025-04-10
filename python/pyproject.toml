@@ -1,17 +1,15 @@
-[project]
+[tool.poetry]
 name = "grpc-python"
 version = "1"
 description = ""
-authors = [
-    {name = "Shubham",email = "shubhammahawar.26@gmail.com"}
-]
+authors = ["Shubham <shubhammahawar.26@gmail.com>"]
 readme = "README.md"
-requires-python = ">=3.12"
-dependencies = [
-    "grpcio (>=1.71.0,<2.0.0)",
-    "grpcio-tools (>=1.71.0,<2.0.0)"
-]
 
+[tool.poetry.dependencies]
+python = ">=3.12"
+grpcio = ">=1.71.0,<2.0.0"
+grpcio-tools = ">=1.71.0,<2.0.0"
+grpcio-reflection = ">=1.71.0,<2.0.0"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]

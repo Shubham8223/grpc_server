@@ -8,6 +8,7 @@ import (
 
 	pb "github.com/shubham8223/grpc-server/userpb"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/reflection"
 )
 
 type Server struct {
@@ -45,7 +46,7 @@ func (s *Server) CreateUsers(stream pb.UserService_CreateUsersServer) error {
 	}
 }
 
-// Bidirectional Streaming RPC (chat) — you can store chat messages in a slice if needed
+
 func (s *Server) Chat(stream pb.UserService_ChatServer) error {
 	for {
 		msg, err := stream.Recv()
@@ -66,6 +67,8 @@ func main() {
 	server := grpc.NewServer()
 
 	pb.RegisterUserServiceServer(server, &Server{})
+
+	reflection.Register(server)
 
 	listener, err := net.Listen("tcp", ":50051")
 	if err != nil {

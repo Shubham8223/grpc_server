@@ -1,0 +1,93 @@
+# ====================
+# Node.js
+# ====================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+dist/
+build/
+.cache/
+.env
+.env.*.local
+
+# TypeScript
+*.tsbuildinfo
+
+# ====================
+# Python
+# ====================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.pkl
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+.cache/
+*.log
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Poetry / Pipenv
+poetry.lock
+Pipfile.lock
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+.env/
+
+
+# VSCode Python stuff
+.pytest_cache/
+.mypy_cache/
+.pyre/
+.dmypy.json
+
+# ====================
+# Go
+# ====================
+# Binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Go workspace
+/vendor/
+/bin/
+/build/
+/dist/
+/coverage.out
+
+# Go modules
+go.sum
+*.mod
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+*.swn
+.DS_Store
+*.iml
+*.log
+*.tmp
+*.bak
+*.orig
+
+# OS-specific
+Thumbs.db
+ehthumbs.db
+Desktop.ini

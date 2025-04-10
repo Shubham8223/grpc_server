@@ -3,6 +3,7 @@ from concurrent import futures
 import time
 from userpb import user_pb2
 from userpb import user_pb2_grpc
+import grpc_reflection.v1alpha.reflection    
 
 class UserService(user_pb2_grpc.UserServiceServicer):
 
@@ -33,6 +34,10 @@ class UserService(user_pb2_grpc.UserServiceServicer):
 def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     user_pb2_grpc.add_UserServiceServicer_to_server(UserService(), server)
+    SERVICE_NAMES = (
+        user_pb2.DESCRIPTxOR.services_by_name['UserService'].full_name,
+    )
+    grpc_reflection.v1alpha.reflection.enable_server_reflection(SERVICE_NAMES, server)
     server.add_insecure_port('[::]:50051') 
     print("Server is starting on port 50051...")
     server.start()
